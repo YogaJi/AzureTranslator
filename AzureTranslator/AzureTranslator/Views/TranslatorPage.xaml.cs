@@ -12,11 +12,21 @@ using Xamarin.Forms.Xaml;
 namespace AzureTranslator.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TranslatorPage : ContentPage
+    public partial class TranslatorPage : ContentPage, INotifyPropertyChanged
     {
 
         ITextTranslationService textTranslationService;
-
+        private string myStringProperty;
+        public string trans;
+        public string MyStringProperty
+        {
+            get { return myStringProperty; }
+            set
+            {
+                myStringProperty = value;
+                OnPropertyChanged(nameof(MyStringProperty)); // Notify that there was a change on this property
+            }
+        }
 
         /*        public static readonly BindableProperty TodoItemProperty =
                     BindableProperty.Create("TodoItem", typeof(TodoItem), typeof(TranslatorPage), null);
@@ -39,27 +49,27 @@ namespace AzureTranslator.Views
         public TranslatorPage()
         {
             InitializeComponent();
-
+            BindingContext = this;
             textTranslationService = new TextTranslationService(new AuthenticationService(Constants.TextTranslatorApiKey));
+            
         }
-
 
         async void OnTranslateButtonClicked(object sender, EventArgs e)
         {
             var translateText = TranslateText.Text;
-            Console.WriteLine(translateText);
-            var translatedText = TranslatedText.Text;
+            //var translatedText = TranslatedText.Text;
             try
             {
                 if (!string.IsNullOrWhiteSpace(translateText))
                 {
                     //IsProcessing = true;
                     Console.WriteLine("not null");
-                    translatedText = await textTranslationService.TranslateTextAsync(translatedText);
-                    Console.WriteLine(TranslatedText);
-                    //OnPropertyChanged("TodoItem");
+                    MyStringProperty = await textTranslationService.TranslateTextAsync(translateText);
+                    trans= await textTranslationService.TranslateTextAsync(translateText);
 
-                    
+                    //Console.WriteLine(t);
+                    MyStringProperty = trans;
+                    //OnPropertyChanged("TodoItem");
                 }
             }
             catch (Exception ex)

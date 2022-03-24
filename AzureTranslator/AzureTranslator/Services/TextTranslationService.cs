@@ -29,7 +29,7 @@ namespace AzureTranslator.Services
             string accessToken = authenticationService.GetAccessToken();
             var response = await SendRequestAsync(requestUri, accessToken);
             var xml = XDocument.Parse(response);
-            Console.WriteLine(xml);
+            Console.WriteLine(xml.Root.Value);
             return xml.Root.Value;
         }
 
