@@ -1,0 +1,16 @@
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\bin\Debug\netstandard2.0\AzureTranslator.deps.json
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\bin\Debug\netstandard2.0\AzureTranslator.dll
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\bin\Debug\netstandard2.0\ref\AzureTranslator.dll
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\bin\Debug\netstandard2.0\AzureTranslator.pdb
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\AzureTranslator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\AzureTranslator.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\AzureTranslator.AssemblyInfo.cs
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\AzureTranslator.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\AzureTranslator.dll
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\ref\AzureTranslator.dll
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\AzureTranslator.pdb
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\Views\TranslatorPage.xaml.g.cs
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator\obj\Debug\netstandard2.0\AzureTranslator.csproj.AssemblyReference.cache
