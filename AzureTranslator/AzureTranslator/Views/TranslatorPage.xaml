@@ -4,8 +4,9 @@
              x:Class="AzureTranslator.Views.TranslatorPage">
     <StackLayout Margin="20" VerticalOptions="StartAndExpand">
         <Label Text="Name" />
-        <Entry Text="" x:Name="TranslateText" Placeholder="Enter text name here" />
+        <Entry Text="{Binding TransStringProperty}" Placeholder="Enter text name here" />
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text ="Speak" Clicked="OnRecognizeSpeechButtonClicked" />
             <Button Text ="Translate" Clicked="OnTranslateButtonClicked" />
         </StackLayout>
         <Label Text="Translated:" />

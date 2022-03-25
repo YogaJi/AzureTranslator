@@ -14,10 +14,13 @@ namespace AzureTranslator.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TranslatorPage : ContentPage, INotifyPropertyChanged
     {
-
+        ISpeechService SpeechService;
         ITextTranslationService textTranslationService;
         private string myStringProperty;
+        private string transStringProperty;
         public string trans;
+        public string transwords;
+        bool isRecording = false;
         public string MyStringProperty
         {
             get { return myStringProperty; }
@@ -27,7 +30,22 @@ namespace AzureTranslator.Views
                 OnPropertyChanged(nameof(MyStringProperty)); // Notify that there was a change on this property
             }
         }
-
+        public string TransStringProperty
+        {
+            get { return transStringProperty; }
+            set
+            {
+                transStringProperty = value;
+                OnPropertyChanged(nameof(TransStringProperty)); // Notify that there was a change on this property
+            }
+        }
+        public static readonly BindableProperty IsProcessingProperty =
+        BindableProperty.Create("IsProcessing", typeof(bool), typeof(TranslatorPage), false);
+        public bool IsProcessing
+        {
+            get { return (bool)GetValue(IsProcessingProperty); }
+            set { SetValue(IsProcessingProperty, value); }
+        }
         /*        public static readonly BindableProperty TodoItemProperty =
                     BindableProperty.Create("TodoItem", typeof(TodoItem), typeof(TranslatorPage), null);
 
@@ -36,36 +54,27 @@ namespace AzureTranslator.Views
                     get { return (TodoItem)GetValue(TodoItemProperty); }
                     set { SetValue(TodoItemProperty, value); }
                 }
-
-                public static readonly BindableProperty IsProcessingProperty =
-                    BindableProperty.Create("IsProcessing", typeof(bool), typeof(TranslatorPage), false);
-        
-        public bool IsProcessing
-        {
-            get { return (bool)GetValue(IsProcessingProperty); }
-            set { SetValue(IsProcessingProperty, value); }
-        }
         */
         public TranslatorPage()
         {
             InitializeComponent();
             BindingContext = this;
             textTranslationService = new TextTranslationService(new AuthenticationService(Constants.TextTranslatorApiKey));
-            
+            SpeechService = new SpeechService(new AuthenticationService(Constants.SpeechApiKey), Device.RuntimePlatform);
         }
 
         async void OnTranslateButtonClicked(object sender, EventArgs e)
         {
-            var translateText = TranslateText.Text;
+            //var translateText = TranslateText.Text;
             //var translatedText = TranslatedText.Text;
             try
             {
-                if (!string.IsNullOrWhiteSpace(translateText))
+                if (!string.IsNullOrWhiteSpace(transStringProperty))
                 {
                     //IsProcessing = true;
                     Console.WriteLine("not null");
-                    MyStringProperty = await textTranslationService.TranslateTextAsync(translateText);
-                    trans= await textTranslationService.TranslateTextAsync(translateText);
+                    MyStringProperty = await textTranslationService.TranslateTextAsync(transStringProperty);
+                    trans = await textTranslationService.TranslateTextAsync(transStringProperty);
 
                     //Console.WriteLine(t);
                     MyStringProperty = trans;
@@ -75,6 +84,51 @@ namespace AzureTranslator.Views
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+            }
+        }
+        async void OnRecognizeSpeechButtonClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var audioRecordingService = DependencyService.Get<IAudioRecorderService>();
+                if (!isRecording)
+                {
+                    audioRecordingService.StartRecording();
+
+                    ((Button)sender).ImageSource = "recording.png";
+                    IsProcessing = true;
+                }
+                else
+                {
+                    audioRecordingService.StopRecording();
+                }
+
+                isRecording = !isRecording;
+                if (!isRecording)
+                {
+                    var speechResult = await SpeechService.RecognizeSpeechAsync(Constants.AudioFilename);
+                    Debug.WriteLine("Name: " + speechResult.DisplayText);
+                    Debug.WriteLine("Recognition Status: " + speechResult.RecognitionStatus);
+
+                    if (!string.IsNullOrWhiteSpace(speechResult.DisplayText))
+                    {
+                        transwords = char.ToUpper(speechResult.DisplayText[0]) + speechResult.DisplayText.Substring(1);
+                        //OnPropertyChanged("TransStringProperty");
+                        TransStringProperty = transwords;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (!isRecording)
+                {
+                    ((Button)sender).ImageSource = "record.png";
+                    IsProcessing = false;
+                }
             }
         }
 
