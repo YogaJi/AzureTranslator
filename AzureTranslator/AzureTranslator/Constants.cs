@@ -17,7 +17,7 @@ namespace AzureTranslator
         public static readonly string BingSpellCheckApiKey = "<INSERT_API_KEY_HERE>";
         public static readonly string BingSpellCheckEndpoint = "https://api.cognitive.microsoft.com/bing/v7.0/SpellCheck";
 */
-        public static readonly string TextTranslatorApiKey = "dd2967c461cf43548f3da6f0739ce3d5";
+        public static readonly string TextTranslatorApiKey = "";
         public static readonly string TextTranslatorEndpoint = "https://api.microsofttranslator.com/v2/http.svc/translate";
 
 /*      public static readonly string FaceApiKey = "<INSERT_API_KEY_HERE>";
