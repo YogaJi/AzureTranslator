@@ -15,19 +15,21 @@ namespace AzureTranslator.Views
     public partial class TranslatorPage : ContentPage, INotifyPropertyChanged
     {
         ISpeechService SpeechService;
+        ISpellCheckService spellCheckService;
         ITextTranslationService textTranslationService;
-        private string myStringProperty;
+        private string afterStringProperty;
         private string transStringProperty;
         public string trans;
-        public string transwords;
+        public string stringToCheck;
+        public string spellCheckResult;
         bool isRecording = false;
-        public string MyStringProperty
+        public string AfterStringProperty
         {
-            get { return myStringProperty; }
+            get { return afterStringProperty; }
             set
             {
-                myStringProperty = value;
-                OnPropertyChanged(nameof(MyStringProperty)); // Notify that there was a change on this property
+                afterStringProperty = value;
+                OnPropertyChanged(nameof(AfterStringProperty)); // Notify that there was a change on this property
             }
         }
         public string TransStringProperty
@@ -60,7 +62,8 @@ namespace AzureTranslator.Views
             InitializeComponent();
             BindingContext = this;
             textTranslationService = new TextTranslationService(new AuthenticationService(Constants.TextTranslatorApiKey));
-            SpeechService = new SpeechService(new AuthenticationService(Constants.SpeechApiKey), Device.RuntimePlatform);
+            spellCheckService = new SpellCheckService();
+            //SpeechService = new SpeechService(new AuthenticationService(Constants.SpeechApiKey), Device.RuntimePlatform);
         }
 
         async void OnTranslateButtonClicked(object sender, EventArgs e)
@@ -73,12 +76,9 @@ namespace AzureTranslator.Views
                 {
                     //IsProcessing = true;
                     Console.WriteLine("not null");
-                    MyStringProperty = await textTranslationService.TranslateTextAsync(transStringProperty);
+                    AfterStringProperty = await textTranslationService.TranslateTextAsync(transStringProperty);
                     trans = await textTranslationService.TranslateTextAsync(transStringProperty);
-
-                    //Console.WriteLine(t);
-                    MyStringProperty = trans;
-                    //OnPropertyChanged("TodoItem");
+                    AfterStringProperty = trans;
                 }
             }
             catch (Exception ex)
@@ -86,51 +86,77 @@ namespace AzureTranslator.Views
                 Debug.WriteLine(ex.Message);
             }
         }
-        async void OnRecognizeSpeechButtonClicked(object sender, EventArgs e)
+        async void OnSpellCheckButtonClicked(object sender, EventArgs e)
         {
             try
             {
-                var audioRecordingService = DependencyService.Get<IAudioRecorderService>();
-                if (!isRecording)
+                if (!string.IsNullOrWhiteSpace(transStringProperty))
                 {
-                    audioRecordingService.StartRecording();
-
-                    ((Button)sender).ImageSource = "recording.png";
                     IsProcessing = true;
-                }
-                else
-                {
-                    audioRecordingService.StopRecording();
-                }
-
-                isRecording = !isRecording;
-                if (!isRecording)
-                {
-                    var speechResult = await SpeechService.RecognizeSpeechAsync(Constants.AudioFilename);
-                    Debug.WriteLine("Name: " + speechResult.DisplayText);
-                    Debug.WriteLine("Recognition Status: " + speechResult.RecognitionStatus);
-
-                    if (!string.IsNullOrWhiteSpace(speechResult.DisplayText))
+                    //stringToCheck = transStringProperty.ToString();
+                    var spellCheckResult = await spellCheckService.SpellCheckTextAsync(transStringProperty);
+                    foreach (var flaggedToken in spellCheckResult.FlaggedTokens)
                     {
-                        transwords = char.ToUpper(speechResult.DisplayText[0]) + speechResult.DisplayText.Substring(1);
-                        //OnPropertyChanged("TransStringProperty");
-                        TransStringProperty = transwords;
+                        transStringProperty = transStringProperty.Replace(flaggedToken.Token, flaggedToken.Suggestions.FirstOrDefault().Suggestion);
                     }
+                    OnPropertyChanged("transStringProperty");
+
+                    IsProcessing = false;
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
-            finally
-            {
-                if (!isRecording)
-                {
-                    ((Button)sender).ImageSource = "record.png";
-                    IsProcessing = false;
-                }
-            }
         }
+        /*        async void OnRecognizeSpeechButtonClicked(object sender, EventArgs e)
+                {
+                    try
+                    {
+                        var audioRecordingService = DependencyService.Get<IAudioRecorderService>();
+                        if (!isRecording)
+                        {
+                            audioRecordingService.StartRecording();
+
+                            ((Button)sender).ImageSource = "recording.png";
+                            IsProcessing = true;
+                        }
+                        else
+                        {
+                            audioRecordingService.StopRecording();
+                        }
+
+                        isRecording = !isRecording;
+                        Console.WriteLine(isRecording);
+                        if (!isRecording)
+                        {
+                            var speechResult = await SpeechService.RecognizeSpeechAsync(Constants.AudioFilename);
+                            Debug.WriteLine("Name111: " + speechResult.DisplayText);
+                            Debug.WriteLine("Recognition Status 111: " + speechResult.RecognitionStatus);
+
+                            if (!string.IsNullOrWhiteSpace(speechResult.DisplayText))
+                            {
+                                transwords = char.ToUpper(speechResult.DisplayText[0]) + speechResult.DisplayText.Substring(1);
+                                Console.WriteLine(transwords);
+                                //OnPropertyChanged("TransStringProperty");
+                                TransStringProperty = transwords;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message +"error! J");
+                    }
+                    finally
+                    {
+                        if (!isRecording)
+                        {
+                            ((Button)sender).ImageSource = "record.png";
+                            IsProcessing = false;
+
+                        }
+                    }
+                }*/
 
     }
 }
