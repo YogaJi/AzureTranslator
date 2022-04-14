@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using System.Collections.Generic;
 
 namespace AzureTranslator.Views
 {
@@ -22,6 +23,8 @@ namespace AzureTranslator.Views
         public string trans;
         public string stringToCheck;
         public string spellCheckResult;
+        private string fromString;
+        private string toString;
         bool isRecording = false;
         public string AfterStringProperty
         {
@@ -41,6 +44,7 @@ namespace AzureTranslator.Views
                 OnPropertyChanged(nameof(TransStringProperty)); // Notify that there was a change on this property
             }
         }
+
         public static readonly BindableProperty IsProcessingProperty =
         BindableProperty.Create("IsProcessing", typeof(bool), typeof(TranslatorPage), false);
         public bool IsProcessing
@@ -56,7 +60,24 @@ namespace AzureTranslator.Views
             textTranslationService = new TextTranslationService(new AuthenticationService(Constants.TextTranslatorApiKey));
             spellCheckService = new SpellCheckService();
             //SpeechService = new SpeechService(new AuthenticationService(Constants.SpeechApiKey), Device.RuntimePlatform);
+
         }
+
+        private async void OnSelectedIndexChangedFrom(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            var selectedItem = (string)picker.SelectedItem;
+            fromString = (string)selectedItem;
+            Console.WriteLine(fromString);
+        }
+        private async void OnSelectedIndexChangedTo(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            var selectedItem = (string)picker.SelectedItem;
+            toString = (string)selectedItem;
+            Console.WriteLine(toString);
+        }
+
         async void ClickToCopyAsync(object sender, EventArgs e)
         {
             var hasText = Clipboard.HasText;
