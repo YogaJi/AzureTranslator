@@ -5,9 +5,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace AzureTranslator.Views
 {
@@ -57,10 +57,23 @@ namespace AzureTranslator.Views
             spellCheckService = new SpellCheckService();
             //SpeechService = new SpeechService(new AuthenticationService(Constants.SpeechApiKey), Device.RuntimePlatform);
         }
-        public void ClickToCopy(object sender, EventArgs e)
+        async void ClickToCopyAsync(object sender, EventArgs e)
         {
-
+            var hasText = Clipboard.HasText;
+            await Clipboard.SetTextAsync(transStringProperty); 
+             var text = await Clipboard.GetTextAsync();
+            Console.WriteLine(text);
+            await DisplayAlert("Copied!", "Your text has been successfully copied.", "OK");
         }
+        async void ClickToCopyTransAsync(object sender, EventArgs e)
+        {
+            var hasText = Clipboard.HasText;
+            await Clipboard.SetTextAsync(afterStringProperty);
+            var textAfter = await Clipboard.GetTextAsync();
+            Console.WriteLine(textAfter);
+            await DisplayAlert("Copied!", "Your translation has been successfully copied.", "OK");
+        }
+        
         async void OnTranslateButtonClicked(object sender, EventArgs e)
         {
             //var translateText = TranslateText.Text;
