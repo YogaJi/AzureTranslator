@@ -2,15 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AzureTranslator.Views.TranslatorPage">
+     
     <StackLayout Margin="20" VerticalOptions="StartAndExpand">
-        <Label Text="Name" />
-        <Entry Text="{Binding TransStringProperty}" Placeholder="Enter text name here" />
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button Text ="Speak" Clicked="OnRecognizeSpeechButtonClicked" />
-            <Button Text ="Translate" Clicked="OnTranslateButtonClicked" />
+        <FlexLayout Margin="-4 20 0 20">
+            <Label Text="From" FontSize="20" Margin="0 10"/>
+            <Picker WidthRequest="80"></Picker>
+            <Label Text="To" Margin="0 30" FontSize="20"/>
+            <Picker WidthRequest="80"></Picker>
+        </FlexLayout>
+        
+        <StackLayout HeightRequest="300">
+            <Label Text="Input" />
+            <Entry Text="{Binding TransStringProperty}" 
+                   Placeholder="Enter text name here"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="100 0">
+                <Button ImageSource="record.png" Clicked="OnSpellCheckButtonClicked" />
+                <Button Text ="Translate" Clicked="OnTranslateButtonClicked" />
+            </StackLayout>
         </StackLayout>
+        
+        <StackLayout Margin="20" HeightRequest="200">
         <Label Text="Translated:" />
-        <Label Text="{Binding MyStringProperty}" />
-
+        <Label Text="{Binding AfterStringProperty}" />
+        </StackLayout>
+        
     </StackLayout>
 </ContentPage>
