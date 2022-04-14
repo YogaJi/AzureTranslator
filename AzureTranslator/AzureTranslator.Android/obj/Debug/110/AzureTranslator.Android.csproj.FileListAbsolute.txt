@@ -589,3 +589,5 @@ C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Andro
 C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\android\src\crc64435a5ac349fa9fda\ActivityLifecycleContextListener.java
 C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\record.png
 C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\recording.png
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\trans.png
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\copy.png

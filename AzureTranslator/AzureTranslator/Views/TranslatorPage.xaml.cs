@@ -48,15 +48,7 @@ namespace AzureTranslator.Views
             get { return (bool)GetValue(IsProcessingProperty); }
             set { SetValue(IsProcessingProperty, value); }
         }
-        /*        public static readonly BindableProperty TodoItemProperty =
-                    BindableProperty.Create("TodoItem", typeof(TodoItem), typeof(TranslatorPage), null);
 
-                public TodoItem TodoItem
-                {
-                    get { return (TodoItem)GetValue(TodoItemProperty); }
-                    set { SetValue(TodoItemProperty, value); }
-                }
-        */
         public TranslatorPage()
         {
             InitializeComponent();
@@ -65,7 +57,10 @@ namespace AzureTranslator.Views
             spellCheckService = new SpellCheckService();
             //SpeechService = new SpeechService(new AuthenticationService(Constants.SpeechApiKey), Device.RuntimePlatform);
         }
+        public void ClickToCopy(object sender, EventArgs e)
+        {
 
+        }
         async void OnTranslateButtonClicked(object sender, EventArgs e)
         {
             //var translateText = TranslateText.Text;

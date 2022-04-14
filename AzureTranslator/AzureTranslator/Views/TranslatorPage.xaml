@@ -2,29 +2,50 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AzureTranslator.Views.TranslatorPage">
-     
-    <StackLayout Margin="20" VerticalOptions="StartAndExpand">
-        <FlexLayout Margin="-4 20 0 20">
-            <Label Text="From" FontSize="20" Margin="0 10"/>
-            <Picker WidthRequest="80"></Picker>
-            <Label Text="To" Margin="0 30" FontSize="20"/>
-            <Picker WidthRequest="80"></Picker>
+
+    <StackLayout Margin="8" VerticalOptions="StartAndExpand" BackgroundColor="#F6F6F6">
+        <FlexLayout BackgroundColor="white">
+            <Label Text="From" FontSize="20"  VerticalTextAlignment="Center" Margin="18,6"/>
+            <Grid Margin="10" HeightRequest="50">
+                    <Frame  Padding="10"
+                BorderColor="#E9E9E9"
+                HasShadow="False">
+                        <Picker WidthRequest="90"></Picker>
+                    </Frame>
+            </Grid>
+            <Label Text="To" FontSize="20" VerticalTextAlignment="Center" Margin="0,6"/>
+            <Grid Margin="10" HeightRequest="50" >
+                <Frame  Padding="10" 
+            BorderColor="#E9E9E9"
+            HasShadow="False">
+                    <Picker WidthRequest="90"></Picker>
+                </Frame>
+            </Grid>
         </FlexLayout>
-        
-        <StackLayout HeightRequest="300">
-            <Label Text="Input" />
-            <Entry Text="{Binding TransStringProperty}" 
-                   Placeholder="Enter text name here"/>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="100 0">
-                <Button ImageSource="record.png" Clicked="OnSpellCheckButtonClicked" />
-                <Button Text ="Translate" Clicked="OnTranslateButtonClicked" />
+
+        <StackLayout Padding="10" HeightRequest="250" BackgroundColor="white" >
+            <FlexLayout HorizontalOptions="End" JustifyContent="End">
+                <ImageButton Source="copy.png" WidthRequest="26" HeightRequest="30" HorizontalOptions="End" Clicked="ClickToCopy" />
+            </FlexLayout>
+
+            <Entry Text="{Binding TransStringProperty}" Placeholder="Enter translation here"/>
+
+            <StackLayout Orientation="Horizontal" Margin="10,100" HorizontalOptions="End">
+                <ImageButton WidthRequest="40" BackgroundColor="Transparent" Source="record.png" Clicked="OnSpellCheckButtonClicked" />
+                <Button WidthRequest="60" BackgroundColor="#02C6F7" Text ="Translate" FontSize="10" Clicked="OnTranslateButtonClicked" />
             </StackLayout>
+        </StackLayout> 
+
+        <StackLayout Padding="10" HeightRequest="250" BackgroundColor="white">
+            <FlexLayout Margin="0,8">
+                <Image Source="trans.png" WidthRequest="30"></Image>
+                <Label Text="Translated:" FontSize="18" VerticalTextAlignment="Center" Margin="10"/>
+            </FlexLayout>
+
+            <Label Text="{Binding AfterStringProperty}" Margin="0,10" FontSize="20" TextColor="Black"/>
+            <ImageButton Source="copy.png"  BackgroundColor="Transparent" Margin="10,70" WidthRequest="26" HeightRequest="30" HorizontalOptions="Start" Clicked="ClickToCopy" />
+         
         </StackLayout>
-        
-        <StackLayout Margin="20" HeightRequest="200">
-        <Label Text="Translated:" />
-        <Label Text="{Binding AfterStringProperty}" />
-        </StackLayout>
-        
+
     </StackLayout>
 </ContentPage>

@@ -100,12 +100,17 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\trans.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AzureTranslator\AzureTranslator.csproj">
       <Project>{5B14705F-4339-4095-A2A6-DE6DA34C67D1}</Project>
       <Name>AzureTranslator</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\copy.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\record.png" />
