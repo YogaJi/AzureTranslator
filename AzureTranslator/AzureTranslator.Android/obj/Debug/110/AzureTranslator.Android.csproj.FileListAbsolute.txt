@@ -592,3 +592,4 @@ C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Andro
 C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\trans.png
 C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\copy.png
 C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\speaker.png
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\android\src\crc6404358c55554cf74a\MyEntryRenderer.java

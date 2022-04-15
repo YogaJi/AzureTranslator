@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:AzureTranslator"
              x:Class="AzureTranslator.Views.TranslatorPage">
 
     <StackLayout Margin="8" VerticalOptions="StartAndExpand" BackgroundColor="#F6F6F6">
@@ -65,10 +65,10 @@
                 <ImageButton Source="copy.png" BackgroundColor="Transparent" WidthRequest="26" HeightRequest="30" HorizontalOptions="End" Clicked="ClickToCopyAsync" />
             </FlexLayout>
 
-            <Entry Text="{Binding TransStringProperty}" Placeholder="Enter translation here"/>
+            <local:MyEntry Text="{Binding TransStringProperty}" Margin="10,0" Placeholder="Enter translation here"/>
 
             <StackLayout Orientation="Horizontal" Margin="10,100" HorizontalOptions="End">
-                <ImageButton WidthRequest="40" BackgroundColor="Transparent" Source="record.png" Clicked="OnSpellCheckButtonClicked" />
+                <ImageButton WidthRequest="30" BackgroundColor="Transparent" Source="recording.png" Clicked="OnSpellCheckButtonClicked" />
                 <Button WidthRequest="60" BackgroundColor="#02C6F7" Text ="Translate" FontSize="10" Clicked="OnTranslateButtonClicked" />
             </StackLayout>
         </StackLayout> 
@@ -79,8 +79,8 @@
                 <Label Text="Translated:" FontSize="18" VerticalTextAlignment="Center" Margin="10"/>
             </FlexLayout>
 
-            <Label Text="{Binding AfterStringProperty}" Margin="0,10" FontSize="20" TextColor="Black"/>
-            <FlexLayout>
+            <Label Text="{Binding AfterStringProperty}" Margin="10,10" FontSize="20" TextColor="Black"/>
+            <FlexLayout Margin="10,0">
                 <ImageButton Source="speaker.png" WidthRequest="26" BackgroundColor="Transparent"  Clicked="ClickToSpeakAsync" />
                 <ImageButton Source="copy.png" BackgroundColor="Transparent" Margin="10,70" WidthRequest="26" HeightRequest="30" HorizontalOptions="Start" Clicked="ClickToCopyTransAsync" />
             </FlexLayout>

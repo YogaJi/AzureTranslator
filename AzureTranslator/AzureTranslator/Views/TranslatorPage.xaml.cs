@@ -121,6 +121,7 @@ namespace AzureTranslator.Views
             Console.WriteLine(text);
             await DisplayAlert("Copied!", "Your text has been successfully copied.", "OK");
         }
+
         async void ClickToCopyTransAsync(object sender, EventArgs e)
         {
             var hasText = Clipboard.HasText;
@@ -132,8 +133,6 @@ namespace AzureTranslator.Views
         
         async void OnTranslateButtonClicked(object sender, EventArgs e)
         {
-            //var translateText = TranslateText.Text;
-            //var translatedText = TranslatedText.Text;
 
             try
             {

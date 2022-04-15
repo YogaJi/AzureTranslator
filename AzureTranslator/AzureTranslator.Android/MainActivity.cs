@@ -24,5 +24,6 @@ namespace AzureTranslator.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
     }
 }
