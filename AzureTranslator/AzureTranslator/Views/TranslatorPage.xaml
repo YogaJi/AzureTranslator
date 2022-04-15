@@ -14,8 +14,17 @@
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>English</x:String>
-                                <x:String>French</x:String>
                                 <x:String>Chinese</x:String>
+                                <x:String>French</x:String>
+                                <x:String>German</x:String>
+                                <x:String>Armenian</x:String>
+                                <x:String>Spanish</x:String>
+                                <x:String>Italian</x:String>
+                                <x:String>Japanese</x:String>
+                                <x:String>Korean</x:String>
+                                <x:String>Polish</x:String>
+                                <x:String>Hindi</x:String>
+                                <x:String>Maori</x:String>
                             </x:Array>
                         </Picker.ItemsSource>
                     </Picker>
@@ -33,8 +42,17 @@
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>English</x:String>
-                                <x:String>French</x:String>
                                 <x:String>Chinese</x:String>
+                                <x:String>French</x:String>
+                                <x:String>German</x:String>
+                                <x:String>Armenian</x:String>
+                                <x:String>Spanish</x:String>
+                                <x:String>Italian</x:String>
+                                <x:String>Japanese</x:String>
+                                <x:String>Korean</x:String>
+                                <x:String>Polish</x:String>
+                                <x:String>Hindi</x:String>
+                                <x:String>Maori</x:String>
                             </x:Array>
                         </Picker.ItemsSource>
                     </Picker>

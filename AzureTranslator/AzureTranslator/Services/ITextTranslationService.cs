@@ -7,6 +7,6 @@ namespace AzureTranslator.Services
 {
 	public interface ITextTranslationService
 	{
-		Task<string> TranslateTextAsync(string text);
+		Task<string> TranslateTextAsync(string text, string from, string to);
 	}
 }

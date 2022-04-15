@@ -23,9 +23,14 @@ namespace AzureTranslator.Views
         public string trans;
         public string stringToCheck;
         public string spellCheckResult;
+        private string fromStringKey;
+        private string toStringKey;
         private string fromString;
         private string toString;
         bool isRecording = false;
+        Dictionary<string, string> languageDic = new Dictionary<string, string>();
+       
+        //public Dictionary<string,string> languageDic;
         public string AfterStringProperty
         {
             get { return afterStringProperty; }
@@ -60,22 +65,51 @@ namespace AzureTranslator.Views
             textTranslationService = new TextTranslationService(new AuthenticationService(Constants.TextTranslatorApiKey));
             spellCheckService = new SpellCheckService();
             //SpeechService = new SpeechService(new AuthenticationService(Constants.SpeechApiKey), Device.RuntimePlatform);
-
+            languageDic.Add("English", "en");
+            languageDic.Add("Chinese", "zh-Hans");
+            languageDic.Add("French", "fr-ca");
+            languageDic.Add("German", "de");
+            languageDic.Add("Armenian", "hy");     
+            languageDic.Add("Spanish", "es");
+            languageDic.Add("Italian", "it");
+            languageDic.Add("Japanese", "ja"); 
+            languageDic.Add("Korean", "ko");    
+            languageDic.Add("Polish", "pl");
+            languageDic.Add("Hindi", "hi");
+            languageDic.Add("Maori", "mi");
         }
 
         private async void OnSelectedIndexChangedFrom(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
             var selectedItem = (string)picker.SelectedItem;
-            fromString = (string)selectedItem;
-            Console.WriteLine(fromString);
+            fromStringKey = (string)selectedItem;
+            Console.WriteLine(fromStringKey);
+
+            foreach (var item in languageDic)
+            {
+                if (item.Key == fromStringKey) {
+                Console.WriteLine("Key " + item.Key +" Value " +item.Value );
+                    fromString = item.Value;
+                }
+            }
         }
         private async void OnSelectedIndexChangedTo(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
             var selectedItem = (string)picker.SelectedItem;
-            toString = (string)selectedItem;
-            Console.WriteLine(toString);
+            toStringKey = (string)selectedItem;
+            Console.WriteLine(toStringKey);
+
+            foreach (var item in languageDic)
+            {
+                if (item.Key == toStringKey)
+                {
+                    Console.WriteLine("Key " + item.Key + " Value " + item.Value);
+                    toString = item.Value;
+                }
+            }
+
         }
 
         async void ClickToCopyAsync(object sender, EventArgs e)
@@ -99,14 +133,15 @@ namespace AzureTranslator.Views
         {
             //var translateText = TranslateText.Text;
             //var translatedText = TranslatedText.Text;
+
             try
             {
-                if (!string.IsNullOrWhiteSpace(transStringProperty))
+                if (!string.IsNullOrWhiteSpace(transStringProperty) && toString != null && fromString != null)
                 {
                     //IsProcessing = true;
                     Console.WriteLine("not null");
-                    AfterStringProperty = await textTranslationService.TranslateTextAsync(transStringProperty);
-                    trans = await textTranslationService.TranslateTextAsync(transStringProperty);
+                    AfterStringProperty = await textTranslationService.TranslateTextAsync(transStringProperty, fromString, toString);
+                    trans = await textTranslationService.TranslateTextAsync(transStringProperty, fromString, toString);
                     AfterStringProperty = trans;
                 }
             }

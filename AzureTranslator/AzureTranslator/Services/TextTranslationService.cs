@@ -18,14 +18,14 @@ namespace AzureTranslator.Services
             authenticationService = authService;
         }
 
-        public async Task<string> TranslateTextAsync(string text)
+        public async Task<string> TranslateTextAsync(string text, string from, string to)
         {
             if (string.IsNullOrWhiteSpace(authenticationService.GetAccessToken()))
             {
                 await authenticationService.InitializeAsync();
             }
 
-            string requestUri = GenerateRequestUri(Constants.TextTranslatorEndpoint, text, "en", "de");
+            string requestUri = GenerateRequestUri(Constants.TextTranslatorEndpoint, text, from, to);
             string accessToken = authenticationService.GetAccessToken();
             var response = await SendRequestAsync(requestUri, accessToken);
             var xml = XDocument.Parse(response);
