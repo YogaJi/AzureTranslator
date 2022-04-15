@@ -79,6 +79,7 @@ namespace AzureTranslator.Views
             languageDic.Add("Maori", "mi");
         }
 
+
         private async void OnSelectedIndexChangedFrom(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
@@ -150,6 +151,15 @@ namespace AzureTranslator.Views
                 Debug.WriteLine(ex.Message);
             }
         }
+        async void ClickToSpeakAsync(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(AfterStringProperty))
+            {
+                await TextToSpeech.SpeakAsync(AfterStringProperty);
+            }
+        }
+
+
         async void OnSpellCheckButtonClicked(object sender, EventArgs e)
         {
             try

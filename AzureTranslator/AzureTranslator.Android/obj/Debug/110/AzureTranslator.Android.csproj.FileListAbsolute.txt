@@ -591,3 +591,4 @@ C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Andro
 C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\recording.png
 C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\trans.png
 C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\copy.png
+C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\res\drawable\speaker.png
