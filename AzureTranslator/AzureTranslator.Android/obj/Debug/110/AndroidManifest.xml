@@ -13,7 +13,8 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
   <application android:label="AzureTranslator.Android" android:theme="@style/MainTheme" android:name="crc6404358c55554cf74a.MainApplication" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true" android:extractNativeLibs="true">
-    <activity android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@mipmap/icon" android:label="AzureTranslator" android:theme="@style/MainTheme" android:name="crc6404358c55554cf74a.MainActivity">
+    <activity android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@mipmap/icon" android:label="AzureTranslator" android:theme="@style/MainTheme" android:name="crc6404358c55554cf74a.MainActivity" />
+    <activity android:noHistory="true" android:theme="@style/MainTheme.Splash" android:name="crc6404358c55554cf74a.SplashActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

@@ -12,7 +12,9 @@ androidx.coordinatorlayout.widget.CoordinatorLayout;C:\Users\DELL\source\repos\A
 attr;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\values\attrs.xml
 background;obj\Debug\110\res\mipmap-anydpi-v26\icon.xml
 background;obj\Debug\110\res\mipmap-anydpi-v26\icon_round.xml
+bitmap;obj\Debug\110\res\drawable\splash_screen.xml
 cache-path;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+color;obj\Debug\110\res\drawable\splash_screen.xml
 color;obj\Debug\110\res\values\colors.xml
 com.google.android.material.appbar.AppBarLayout;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\layout\flyoutcontent.xml
 com.google.android.material.appbar.AppBarLayout;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\layout\rootlayout.xml
@@ -21,6 +23,8 @@ com.google.android.material.bottomnavigation.BottomNavigationView;C:\Users\DELL\
 com.google.android.material.tabs.TabLayout;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\layout\fallbacktabbardonotuse.xml
 com.google.android.material.tabs.TabLayout;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\layout\rootlayout.xml
 com.google.android.material.tabs.TabLayout;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\layout\tabbar.xml
+crc643f46942d9dd1fff9.ShellFlyoutLayout;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\layout\flyoutcontent.xml
+crc64720bb2db43a66fe9.FormsViewPager;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\layout\rootlayout.xml
 declare-styleable;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\values\attrs.xml
 external-cache-path;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
@@ -28,6 +32,9 @@ foreground;obj\Debug\110\res\mipmap-anydpi-v26\icon.xml
 foreground;obj\Debug\110\res\mipmap-anydpi-v26\icon_round.xml
 FrameLayout;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\layout\bottomtablayout.xml
 item;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\values\styles.xml
+item;obj\Debug\110\res\drawable\splash_screen.xml
+item;obj\Debug\110\res\values\styles.xml
+layer-list;obj\Debug\110\res\drawable\splash_screen.xml
 LinearLayout;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\layout\bottomtablayout.xml
 paths;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 resources;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\1\jl\res\values\strings.xml
@@ -44,6 +51,7 @@ string;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslato
 string;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\values\strings.xml
 style;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\values\styles.xml
 style;obj\Debug\110\res\values\styles.xml
+TextView;obj\Debug\110\res\drawable\splash_screen.xml
 translate;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\anim\enterfromleft.xml
 translate;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\anim\enterfromright.xml
 translate;C:\Users\DELL\source\repos\AzureTranslator\AzureTranslator\AzureTranslator.Android\obj\Debug\110\lp\48\jl\res\anim\exittoleft.xml
